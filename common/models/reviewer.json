@@ -1,0 +1,29 @@
+{
+  "name": "Reviewer",
+  "plural": "Reviewers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "email reviewer"
+    },
+    "password": {
+      "type": "string",
+      "description": "password reviewer"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "reviews": {
+      "type": "hasMany",
+      "model": "Review",
+      "foreignKey": "publisherId"  
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

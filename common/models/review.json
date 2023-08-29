@@ -1,0 +1,51 @@
+{
+  "name": "Review",
+  "plural": "Reviews",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "date": {
+      "type": "date",
+      "description": "tanggal review dibuat"
+    },
+    "rating": {
+      "type": "number",
+      "description": "rating dari coffee shop"
+    },
+    "comments": {
+      "type": "string",
+      "description": "komen review coffee shop"
+    },
+    "publisherId": {
+      "type": "string",
+      "description": "ID penerbit (reviewer)"
+    },
+    "coffeeshopId": {
+      "type": "string",
+      "description": "ID coffee shop"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "defaut" :false
+    }
+  },
+  "SoftDelete" : true,
+  "validations": [],
+  "relations": {
+    "coffeeShop": {
+      "type": "belongsTo",
+      "model": "CoffeeShop",
+      "foreignKey": "coffeeshopId"  
+    },
+    "reviewer": {
+      "type": "belongsTo",
+      "model": "Reviewer",
+      "foreignKey": "publisherId"  
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

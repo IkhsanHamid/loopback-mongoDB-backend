@@ -1,0 +1,42 @@
+{
+  "name": "CoffeeShop",
+  "plural": "CoffeeShops",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "nama Coffee Shop"
+    },
+    "city": {
+      "type": "string",
+      "description": "kota coffee shop"
+    },
+    "alamat": {
+      "type": "string",
+      "description": "alamat coffee shop"
+    }, 
+    "ratingCafe" : {
+      "type" : "number",
+      "description" : "rating cafe dari pengunjung"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "reviews": {
+      "type": "hasMany",
+      "model": "Review",
+      "foreignKey": "coffeeshopId" 
+    },
+    "reviewers": {
+      "type": "hasMany",
+      "model": "Reviewer",
+      "foreignKey": ""  
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -18,10 +18,10 @@
     "alamat": {
       "type": "string",
       "description": "alamat coffee shop"
-    }, 
-    "ratingCafe" : {
-      "type" : "number",
-      "description" : "rating cafe dari pengunjung"
+    },
+    "ratingCafe": {
+      "type": "number",
+      "description": "rating cafe dari pengunjung"
     }
   },
   "validations": [],
@@ -29,12 +29,12 @@
     "reviews": {
       "type": "hasMany",
       "model": "Review",
-      "foreignKey": "coffeeshopId" 
+      "foreignKey": "coffeeshopId"
     },
     "reviewers": {
       "type": "hasMany",
       "model": "Reviewer",
-      "foreignKey": ""  
+      "foreignKey": ""
     }
   },
   "acls": [],

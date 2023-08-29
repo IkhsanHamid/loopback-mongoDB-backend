@@ -1,0 +1,24 @@
+{
+  "name": "menu-cafe",
+  "plural": "menuCafes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Coffee": {
+      "type": "string"
+    },
+    "Non-Coffe": {
+      "type": "string"
+    },
+    "Food": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -6,6 +6,7 @@
   "options": {
     "validateUpsert": true
   },
+  "SoftDelete": true,
   "properties": {
     "date": {
       "type": "date",
@@ -29,21 +30,20 @@
     },
     "isDeleted": {
       "type": "boolean",
-      "defaut" :false
+      "defaut": false
     }
   },
-  "SoftDelete" : true,
   "validations": [],
   "relations": {
     "coffeeShop": {
       "type": "belongsTo",
       "model": "CoffeeShop",
-      "foreignKey": "coffeeshopId"  
+      "foreignKey": "coffeeshopId"
     },
     "reviewer": {
       "type": "belongsTo",
       "model": "Reviewer",
-      "foreignKey": "publisherId"  
+      "foreignKey": "publisherId"
     }
   },
   "acls": [],

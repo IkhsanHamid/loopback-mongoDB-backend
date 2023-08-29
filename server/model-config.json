@@ -24,5 +24,9 @@
   "Reviewer": {
     "dataSource": "mongoDs",
     "public": true
+  },
+  "menu-cafe": {
+    "dataSource": "mongoDs",
+    "public": true
   }
 }

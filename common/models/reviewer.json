@@ -21,7 +21,7 @@
     "reviews": {
       "type": "hasMany",
       "model": "Review",
-      "foreignKey": "publisherId"  
+      "foreignKey": "publisherId"
     }
   },
   "acls": [],

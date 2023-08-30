@@ -1,0 +1,38 @@
+{
+  "name": "order",
+  "plural": "Orders",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "namaCust": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "date"
+    },
+    "listOrder" : {
+      "type": [
+        "object"
+      ]
+    },
+    "createdName": {
+      "type": "string",
+      "required": true
+    },
+    "createdId": {
+      "type": "object",
+      "required": true
+    },
+    "coffeeshopId": {
+      "type": "string",
+      "description": "ID coffee shop"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

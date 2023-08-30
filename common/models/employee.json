@@ -1,0 +1,38 @@
+{
+  "name": "employee",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nama": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "hp": {
+      "type": "number"
+    },
+    "alamat": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    },
+    "coffeeshopId": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "coffeeShop": {
+      "type": "belongsTo",
+      "model": "CoffeeShop",
+      "foreignKey": "coffeshopId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

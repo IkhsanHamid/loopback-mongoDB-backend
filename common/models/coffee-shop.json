@@ -35,6 +35,16 @@
       "type": "hasMany",
       "model": "Reviewer",
       "foreignKey": ""
+    },
+    "MenuCafe": {
+      "type": "hasMany",
+      "model": "menu-cafe",
+      "foreignKey": "coffeeshopId"
+    },
+    "Employee": {
+      "type": "hasMany",
+      "model": "employee",
+      "foreignKey": "coffeeshopId"
     }
   },
   "acls": [],

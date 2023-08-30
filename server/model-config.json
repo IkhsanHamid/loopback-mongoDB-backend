@@ -28,5 +28,13 @@
   "menu-cafe": {
     "dataSource": "mongoDs",
     "public": true
+  },
+  "employee": {
+    "dataSource": "mongoDs",
+    "public": false
+  },
+  "order": {
+    "dataSource": "mongoDs",
+    "public": true
   }
 }

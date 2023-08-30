@@ -6,19 +6,67 @@
   "options": {
     "validateUpsert": true
   },
+  "SoftDelete": true,
   "properties": {
-    "Coffee": {
+    "menuName": {
+      "type": "string",
+      "description": "nama menu"
+    },
+    "category": {
+      "type": "string",
+      "description": "kategori menu",
+      "enum": [
+        "coffee",
+        "non-Coffee",
+        "food"
+      ]
+    },
+    "stock": {
+      "type": "number",
+      "description": "stock menu"
+    },
+    "price" : {
+      "type" :"number",
+      "description" : "harga menu"
+    },
+    "coffeeshopId": {
+      "type": "string",
+      "description": "ID coffee shop"
+    },
+    "createdAt": {
+      "type": "date"
+    },
+    "createdName": {
+      "type": "string",
+      "required": true
+    },
+    "createdId": {
+      "type": "object",
+      "required": true
+    },
+    "updatedStockAt": {
+      "type": "date"
+    },
+    "lastStock": {
+      "type": "number",
+      "description": "stock terakhir menu sebelum di update"
+    },
+    "updatedId": {
       "type": "string"
     },
-    "Non-Coffe": {
-      "type": "string"
-    },
-    "Food": {
-      "type": "string"
+    "isDeleted": {
+      "type": "boolean",
+      "defaut": false
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "coffeeShop": {
+      "type": "belongsTo",
+      "model": "CoffeeShop",
+      "foreignKey": "coffeshopId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

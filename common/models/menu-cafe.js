@@ -8,13 +8,12 @@ module.exports = function(Menucafe) {
             // const {CoffeeShop} = Menucafe.app.models
             // const MenucafeCollection = connector.collection("Menucafe")
 
-            let inCoffeeShopId = ObjectID(data.coffeshopId)
+            let inCoffeeShopId = ObjectID(data.coffeeshopId)
+            console.log("object",  inCoffeeShopId);
+            console.log("object",  data);
 
             const find = await Menucafe.findOne({where : {menuName: data.menuName}})
-            const exist = data.menuName
-            if(exist === find.menuName){
-                throw new Error("nama menu telah tersedia, masukkan menu yang lain")
-            } else {
+            if(!find || find === null){
                 if (!["coffee", "non-Coffee", "food"].includes(data.category)) {
                     return { status: "Category tidak valid. Pilih di antara: coffee, non-Coffee, food" };
                 }
@@ -24,8 +23,11 @@ module.exports = function(Menucafe) {
                     category : data.category,
                     stock : data.stock
                 }
+                console.log("object", datas);
                 await Menucafe.create(datas)
                 return {status : "berhasil menambahkan data", data : datas}
+            } else {
+                throw new Error("nama menu telah tersedia, masukkan menu yang lain")
             }
         } catch (error) {
             throw error
@@ -80,6 +82,6 @@ module.exports = function(Menucafe) {
         http : {verb : "PUT"}
     })
 
-    
+
 
 };

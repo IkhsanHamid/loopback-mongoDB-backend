@@ -25,9 +25,9 @@
       "type": "number",
       "description": "stock menu"
     },
-    "price" : {
-      "type" :"number",
-      "description" : "harga menu"
+    "price": {
+      "type": "number",
+      "description": "harga menu"
     },
     "coffeeshopId": {
       "type": "string",
@@ -38,11 +38,11 @@
     },
     "createdName": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "createdId": {
       "type": "object",
-      "required": true
+      "required": false
     },
     "updatedStockAt": {
       "type": "date"

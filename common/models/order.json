@@ -10,13 +10,19 @@
     "namaCust": {
       "type": "string"
     },
+    "publisherId": {
+      "type": "number"
+    },
     "createdAt": {
       "type": "date"
     },
-    "listOrder" : {
+    "listOrder": {
       "type": [
         "object"
       ]
+    },
+    "totalPrice": {
+      "type": "number"
     },
     "createdName": {
       "type": "string",

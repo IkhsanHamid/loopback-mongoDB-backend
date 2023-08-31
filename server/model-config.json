@@ -36,5 +36,9 @@
   "order": {
     "dataSource": "mongoDs",
     "public": true
+  },
+  "orderDetail": {
+    "dataSource": "mongoDs",
+    "public": true
   }
 }

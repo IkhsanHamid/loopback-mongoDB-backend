@@ -1,12 +1,8 @@
 {
   "mongoDs": {
-    "host": "localhost",
-    "port": 27017,
-    "url": "",
-    "database": "demo",
-    "password": "",
+    "url": "mongodb+srv://ikhsanhamid12345:ikhsan1802@project.gl0ld38.mongodb.net/ptpn?retryWrites=true&w=majority",
+    "database": "ptpn",
     "name": "mongoDs",
-    "user": "",
     "useNewUrlParser": true,
     "connector": "mongodb"
   }

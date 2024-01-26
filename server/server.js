@@ -7,12 +7,15 @@
 
 const loopback = require('loopback');
 const boot = require('loopback-boot');
+const cors = require('cors');
 
 const app = module.exports = loopback();
 
-app.start = function() {
+// eslint-disable-next-line space-before-function-paren
+app.start = function () {
   // start the web server
-  return app.listen(function() {
+  // eslint-disable-next-line space-before-function-paren
+  return app.listen(function () {
     app.emit('started');
     const baseUrl = app.get('url').replace(/\/$/, '');
     console.log('Web server listening at: %s', baseUrl);
@@ -23,9 +26,12 @@ app.start = function() {
   });
 };
 
+app.use(cors());
+
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
-boot(app, __dirname, function(err) {
+// eslint-disable-next-line space-before-function-paren
+boot(app, __dirname, function (err) {
   if (err) throw err;
 
   // start the server if `$ node server.js`

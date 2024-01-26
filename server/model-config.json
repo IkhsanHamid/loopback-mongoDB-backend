@@ -40,5 +40,9 @@
   "orderDetail": {
     "dataSource": "mongoDs",
     "public": true
+  },
+  "detection": {
+    "dataSource": "mongoDs",
+    "public": true
   }
 }

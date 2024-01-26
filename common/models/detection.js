@@ -1,6 +1,43 @@
 'use strict';
+const moment = require('moment');
 
 module.exports = (detection) => {
+  function groupDataByTwoHours(data) {
+    const groupedData = [];
+
+    const sortedData = data.sort((a, b) => moment(a.timestamp).diff(moment(b.timestamp)));
+
+    let currentGroup = [];
+    sortedData.forEach(entry => {
+      if (currentGroup.length === 0 || moment(entry.timestamp).diff(moment(currentGroup[0].timestamp), 'hours') < 2) {
+        currentGroup.push(entry);
+      } else {
+        groupedData.push(mergeDataInGroup(currentGroup));
+        currentGroup = [entry];
+      }
+    });
+
+    if (currentGroup.length > 0) {
+      groupedData.push(mergeDataInGroup(currentGroup));
+    }
+
+    return groupedData;
+  }
+
+  function mergeDataInGroup(group) {
+    const mergedData = {
+      timestamp: group[0].timestamp,
+      class_count: group.reduce((acc, entry) => {
+        Object.keys(entry.class_count).forEach(key => {
+          acc[key] = (acc[key] || 0) + entry.class_count[key];
+        });
+        return acc;
+      }, {}),
+    };
+
+    return mergedData;
+  }
+
   detection.getData = async (search, skip, limit) => {
     try {
       if (!search) {
@@ -15,9 +52,11 @@ module.exports = (detection) => {
             limit: limit,
           }
         );
-        const totalDataWithoutSearch = await detection.count();
 
-        return { data: getDataWithoutSearch, total: totalDataWithoutSearch };
+        const groupedData = groupDataByTwoHours(getDataWithoutSearch);
+        const totalDataWithoutSearch = groupedData.length;
+
+        return { data: groupedData, total: totalDataWithoutSearch };
       } else {
         const getDataWithSearch = await detection.find(
           {
@@ -35,13 +74,18 @@ module.exports = (detection) => {
             limit: limit,
           }
         );
-        const totalDataWithSearch = await detection.count();
-        return { data: getDataWithSearch, total: totalDataWithSearch };
+
+        const groupedData = groupDataByTwoHours(getDataWithSearch);
+        const totalDataWithSearch = groupedData.length;
+
+        return { data: groupedData, total: totalDataWithSearch };
       }
     } catch (error) {
       throw error;
     }
   };
+
+  // update function, count class_count per 2 jam.
 
   detection.remoteMethod("getData", {
     description: ["get data sawit"],
